@@ -1,0 +1,393 @@
+{
+  "preset_info": {
+    "version": 12,
+    "title": "Weatherly 3D",
+    "description": "3D Weather Design",
+    "author": "Shael Vaghela",
+    "email": "shaileshvaghela619@gmail.com",
+    "width": 300,
+    "height": 300,
+    "features": "WEATHER",
+    "release": 363228708,
+    "locked": false,
+    "pflags": 0
+  },
+  "preset_root": {
+    "internal_type": "KomponentModule",
+    "internal_title": "Weatherly 3D",
+    "globals_list": {
+      "icon": {
+        "index": 1,
+        "type": "LIST",
+        "title": "Icon",
+        "entries": "\"$wi(icon)$\"##Current,\"$wf(icon, 0)$\"##Today Forecast,\"$wf(icon, 1)$\"##Tomorrow Forecast,\"$wf(icon, 2)$\"##2 Days Forecast,\"$wf(icon, 3)$\"##3 Days Forecast,\"$wf(icon, 4)$\"##4 Days Forecast,\"$wf(icon, 5)$\"##5 Days Forecast,\"$wf(icon, 6)$\"##6 Days Forecast,\"$wf(icon, 7)$\"##7 Days Forecast,\"$wf(icon, 8)$\"##8 Days Forecast,\"$wf(icon, 9)$\"##9 Days Forecast",
+        "value": "$wi(icon)$"
+      },
+      "nightico": {
+        "index": 2,
+        "type": "SWITCH",
+        "title": "NightIco",
+        "value": 1
+      },
+      "scale": {
+        "index": 3,
+        "type": "NUMBER",
+        "title": "Scale",
+        "min": 20,
+        "max": 500,
+        "value": 300.0
+      }
+    },
+    "internal_toggles": {
+      "config_scale_value": 100
+    },
+    "internal_globals": {
+      "config_scale_value": "scale"
+    },
+    "config_location": "PRIMARY",
+    "internal_author_name": "Shael Vaghela",
+    "internal_author_email": "shaileshvaghela619@gmail.com",
+    "internal_events": [
+      {
+        "type": "SINGLE_TAP",
+        "action": "KUSTOM_ACTION",
+        "kustom_action": "WEATHER_UPDATE"
+      }
+    ],
+    "position_anchor": "CENTER",
+    "internal_description": "3D Weather Design",
+    "viewgroup_items": [
+      {
+        "internal_type": "OverlapLayerModule",
+        "internal_title": "Bitmaps",
+        "internal_toggles": {
+          "config_scale_value": 0
+        },
+        "internal_globals": {
+          "config_scale_value": "scale"
+        },
+        "viewgroup_items": [
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Clear Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=clear & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG6226bae1ac6eb7dac17b975f76130c97"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Clear Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=clear & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG8cb7c3c23bec5187827bf5adb68670ad"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Fog Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=fog & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGbde242bee7b31c5be75bba8a75d1ab7f"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Fog Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=fog & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGb70cb9ea05f04535bd645a41743d563e"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Hail Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=hail & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG22a12462f1d430ee1b66653d5d57a79e"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Hail Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=hail & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGce453360ab51cb170af0f50e96ab8517"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Light Snow Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=lsnow & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG88d283c80d18a3f2f342ad5408937260"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Light Snow Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=lsnow & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGb752d8c74bb25e7180b9a04a4155b17e"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Mostly Cloudy Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=mcloudy & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGeffcbf1b6bf7a3073bae6b99748a498a"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Mostly Cloudy Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=mcloudy & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGdfd1adca328edb23fe4b93aecf8ea2c0"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Partly Cloudy Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=pcloudy & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGeffcbf1b6bf7a3073bae6b99748a498a"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Partly Cloudy Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=pcloudy & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGdfd1adca328edb23fe4b93aecf8ea2c0"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Rain Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=rain & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGd45fc868d6f3fefdcbd4ad81faa657c1"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Rain Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=rain & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG55f12ea4b4cca46ffe7813656e7f7991"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Showers Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=shower & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG4cd2fbea590e87ab9e9b0ac5ced166b"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Showers Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=shower & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG6bd171569d51ad12bfe0bedecac58347"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Sleet Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=sleet & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG9871749e1cbfbd9f9a2be1e616a6ce74"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Sleet Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=sleet & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGa9c9a12d8d4ba2e1257bf6a6644b90de"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Snow Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=snow & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGea208b1ae750bb6d176ebe31590416fd"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Snow Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=snow & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGad89436205615b9a460ab4e85c01036f"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Tornado Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=tornado & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG178df668529a8b0a5ab30f15f8441d39"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Tornado Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=tornado & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG178df668529a8b0a5ab30f15f8441d39"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Thunder Shower Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=tshower & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG1ad54acf25dc31bc6af9b924a0bc9dbd"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Thunder Shower Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=tshower & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGd78a4720018f98036398fd85cfa43ed0"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Thunderstorm Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=tstorm & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGd38b409f1d4e2a03f0f32d1c3014a004"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Thunderstorm Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=tstorm & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGce5dd218321f1d4ffb30939b906ce123"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Unknown",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=unknown, 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG32203274b7a3907d3828fc51a53b893a"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Windy Day",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=windy & (ai(isday)=1 | gv(nightico)=0), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMGd0839079a13963be122d1d651c1f28da"
+          },
+          {
+            "internal_type": "BitmapModule",
+            "internal_title": "Windy Night",
+            "internal_toggles": {
+              "bitmap_alpha": 10
+            },
+            "internal_formulas": {
+              "bitmap_alpha": "$if(gv(icon)=windy & (ai(isday)=0 & gv(nightico)=1), 100, 0)$"
+            },
+            "bitmap_bitmap": "kfile://org.kustom.provider/bitmaps/IMG92b735950b07894ee5ab0478cc1525c5"
+          }
+        ]
+      }
+    ]
+  }
+}
